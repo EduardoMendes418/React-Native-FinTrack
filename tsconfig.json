@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "types": ["jest", "node"]
+  },
+  "extends": "expo/tsconfig.base",
+  "exclude": [
+    "node_modules",
+    "cypress",
+    "cypress.config.js"
+  ]
+}
