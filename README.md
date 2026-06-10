@@ -14,6 +14,7 @@ FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido c
 ## 🛠️ Tecnologias Utilizadas
 
 ### Frontend (Mobile)
+
 - **Framework:** [React Native](https://reactnative.dev/) (Expo SDK 56).
 - **Linguagem:** [TypeScript](https://www.typescriptlang.org/).
 - **Tematização:** Sistema de temas customizado (`src/theme`).
@@ -21,6 +22,7 @@ FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido c
 - **Ícones:** [Lucide React Native](https://lucide.dev/).
 
 ### Backend (Server)
+
 - **Runtime:** [Node.js](https://nodejs.org/).
 - **Framework:** [Express](https://expressjs.com/).
 - **Banco de Dados:** [MongoDB Atlas](https://www.mongodb.com/atlas) (via Mongoose).
@@ -29,6 +31,7 @@ FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido c
 ## 📂 Estrutura de Pastas (Clean Code)
 
 ### App Mobile (`src/`)
+
 - `src/theme/`: Centralização de cores, espaçamentos e estilos globais.
 - `src/components/`: Componentes modulares e reutilizáveis (`TransactionItem`, `Button`, etc).
 - `src/screens/`: Telas estruturadas com sub-componentes para maior legibilidade.
@@ -36,6 +39,7 @@ FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido c
 - `src/types/`: Definições globais de tipos TypeScript.
 
 ### Backend (`server/`)
+
 - `server/config/`: Configurações de conexão com banco de dados.
 - `server/controllers/`: Lógica de negócio e tratamento de requisições.
 - `server/routes/`: Definição de endpoints da API.
@@ -44,6 +48,7 @@ FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido c
 ## 📦 Como Executar
 
 ### 1. Configurar o Backend
+
 1. Navegue até a pasta do servidor:
    ```bash
    cd server
@@ -60,6 +65,7 @@ FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido c
    ```
 
 ### 2. Inicie o App Mobile
+
 1. Na raiz do projeto, instale as dependências:
    ```bash
    npm install
@@ -76,6 +82,7 @@ FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido c
 - **E2E (Cypress):** `npm run test:e2e` - Testes de integração de fluxos críticos (Web).
 
 ---
-*Este projeto foi refatorado utilizando princípios de Clean Code para garantir alta manutenibilidade e escalabilidade.*
 
-![alt text](docs/img/Gemini-CLI.jpg)
+_Este projeto foi refatorado utilizando princípios de Clean Code para garantir alta manutenibilidade e escalabilidade._
+
+![alt text](client/docs/img/Gemini-CLI.jpg)
