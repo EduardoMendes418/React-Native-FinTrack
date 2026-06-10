@@ -30,6 +30,7 @@ const TransactionsScreen = () => {
             style={styles.searchInput}
             placeholder="Search transactions..."
             placeholderTextColor="#94A3B8"
+            testID="transaction-search-input"
           />
         </View>
 

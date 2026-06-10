@@ -4,6 +4,7 @@ import {
   Text, 
   StyleSheet, 
   TouchableOpacity,
+  Pressable,
   ScrollView,
   ActivityIndicator
 } from 'react-native';
@@ -62,17 +63,22 @@ const AddTransactionScreen = ({ navigation }: any) => {
               containerStyle={styles.aiInputComponentContainer}
               testID="ai-input"
             />
-            <TouchableOpacity 
-              style={[styles.aiButton, !aiInput && styles.aiButtonDisabled]} 
+            <Pressable 
+              style={({ pressed }) => [
+                styles.aiButton, 
+                (!aiInput || isProcessing) && styles.aiButtonDisabled,
+                pressed && !isProcessing && aiInput && { opacity: 0.7 }
+              ]} 
               onPress={handleSmartEntry}
               disabled={!aiInput || isProcessing}
+              testID="ai-process-button"
             >
               {isProcessing ? (
                 <ActivityIndicator color="#FFFFFF" size="small" />
               ) : (
                 <Text style={styles.aiButtonText}>Process</Text>
               )}
-            </TouchableOpacity>
+            </Pressable>
           </View>
           <Text style={styles.aiHint}>Try typing "Spent 50 dollars on pizza today"</Text>
         </View>

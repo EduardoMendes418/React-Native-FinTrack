@@ -55,6 +55,7 @@ const SecuritySettingsScreen = ({ navigation }: any) => {
                 onValueChange={setBiometricsEnabled}
                 trackColor={{ false: '#E2E8F0', true: '#008080' }}
                 thumbColor="#FFFFFF"
+                testID="biometric-toggle"
               />
             </View>
             <View style={styles.separator} />

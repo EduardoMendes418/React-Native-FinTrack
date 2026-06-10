@@ -27,44 +27,51 @@ const ProfileScreen = ({ navigation }: any) => {
           icon={<User size={20} color="#64748B" />} 
           label="Profile" 
           onPress={() => {}}
+          testID="profile-menu-item"
         />
         <MenuItem 
           icon={<Tag size={20} color="#64748B" />} 
           label="Category Manager" 
           onPress={() => navigation.navigate('CategoryManager')}
+          testID="category-manager-menu-item"
         />
         <MenuItem 
           icon={<Target size={20} color="#64748B" />} 
           label="Savings Goals" 
           onPress={() => navigation.navigate('SavingsGoals')}
+          testID="savings-goals-menu-item"
         />
         <MenuItem 
           icon={<Settings size={20} color="#64748B" />} 
           label="Account Settings" 
           onPress={() => {}}
+          testID="settings-menu-item"
         />
         <MenuItem 
           icon={<Bell size={20} color="#64748B" />} 
           label="Notifications" 
           onPress={() => {}}
+          testID="notifications-menu-item"
         />
         <MenuItem 
           icon={<Shield size={20} color="#64748B" />} 
           label="Security" 
           onPress={() => navigation.navigate('SecuritySettings')}
+          testID="security-menu-item"
         />
         <MenuItem 
           icon={<HelpCircle size={20} color="#64748B" />} 
           label="Help Center" 
           onPress={() => {}}
+          testID="help-menu-item"
         />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-const MenuItem = ({ icon, label, onPress }: { icon: any, label: string, onPress: () => void }) => (
-  <TouchableOpacity style={styles.menuItem} onPress={onPress}>
+const MenuItem = ({ icon, label, onPress, testID }: { icon: any, label: string, onPress: () => void, testID?: string }) => (
+  <TouchableOpacity style={styles.menuItem} onPress={onPress} testID={testID}>
     <View style={styles.menuItemLeft}>
       <View style={styles.menuIconContainer}>{icon}</View>
       <Text style={styles.menuLabel}>{label}</Text>

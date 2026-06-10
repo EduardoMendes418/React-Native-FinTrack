@@ -1,72 +1,81 @@
 # FinTrack - Gestor de Finanças Pessoais e Orçamentos
 
-FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido com React Native e Expo. Ele oferece uma interface moderna e intuitiva para controle de gastos, orçamentos e metas de economia, seguindo rigorosos padrões de engenharia de software e testes automatizados.
+FinTrack é um aplicativo de gestão financeira pessoal completo, desenvolvido com **React Native (Expo)** e agora turbinado com um backend **Node.js/Express** e banco de dados **MongoDB**. O projeto segue rigorosos padrões de **Clean Code**, arquitetura modular e testes automatizados.
 
 ## 🚀 Funcionalidades
 
-- **Dashboard Financeiro:** Visualização de saldo total e gráficos de resumo.
-- **Gestão de Transações:** Fluxo completo de criação, listagem e filtragem de receitas e despesas.
+- **Dashboard Financeiro:** Visualização de saldo total e monitoramento de orçamentos.
+- **Gestão de Transações:** Fluxo completo de criação e listagem de receitas/despesas persistidas na nuvem.
 - **Controle de Orçamentos:** Monitoramento visual de limites de gastos por categoria.
-- **Analytics (Análises):** Gráficos detalhados de gastos mensais e detalhamento por categoria.
+- **Analytics:** Gráficos detalhados de gastos mensais e detalhamento por categoria.
 - **Metas de Economia:** Acompanhamento de progresso para objetivos financeiros.
-- **Navegação Intuitiva:** Fluxo de onboarding, login e navegação por abas.
-- **Persistência Local:** Armazenamento seguro via `@react-native-async-storage/async-storage`.
+- **Segurança e Sincronização:** Dados armazenados de forma segura em banco de dados MongoDB Atlas.
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Core:** [React Native](https://reactnative.dev/) + [Expo](https://expo.dev/) (SDK 56).
-- **Navegação:** [React Navigation](https://reactnavigation.org/).
+### Frontend (Mobile)
+- **Framework:** [React Native](https://reactnative.dev/) (Expo SDK 56).
 - **Linguagem:** [TypeScript](https://www.typescriptlang.org/).
+- **Tematização:** Sistema de temas customizado (`src/theme`).
+- **Navegação:** [React Navigation](https://reactnavigation.org/).
 - **Ícones:** [Lucide React Native](https://lucide.dev/).
-- **Estilização:** StyleSheet (Vanilla CSS patterns).
-- **Testes Unitários:** [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/).
-- **Testes E2E (Web):** [Cypress](https://www.cypress.io/).
+
+### Backend (Server)
+- **Runtime:** [Node.js](https://nodejs.org/).
+- **Framework:** [Express](https://expressjs.com/).
+- **Banco de Dados:** [MongoDB Atlas](https://www.mongodb.com/atlas) (via Mongoose).
+- **Padrão:** MVC (Models, Controllers, Routes).
+
+## 📂 Estrutura de Pastas (Clean Code)
+
+### App Mobile (`src/`)
+- `src/theme/`: Centralização de cores, espaçamentos e estilos globais.
+- `src/components/`: Componentes modulares e reutilizáveis (`TransactionItem`, `Button`, etc).
+- `src/screens/`: Telas estruturadas com sub-componentes para maior legibilidade.
+- `src/services/`: Camada de integração com a API (`financeStorage.ts`).
+- `src/types/`: Definições globais de tipos TypeScript.
+
+### Backend (`server/`)
+- `server/config/`: Configurações de conexão com banco de dados.
+- `server/controllers/`: Lógica de negócio e tratamento de requisições.
+- `server/routes/`: Definição de endpoints da API.
+- `server/models/`: Schemas do Mongoose para persistência de dados.
 
 ## 📦 Como Executar
 
-1.  **Instale as dependências:**
+### 1. Configurar o Backend
+1. Navegue até a pasta do servidor:
+   ```bash
+   cd server
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Configure o arquivo `.env`:
+   - Copie o exemplo e adicione sua `MONGODB_URI` (MongoDB Atlas).
+4. Inicie o servidor:
+   ```bash
+   npm start
+   ```
 
-    ```bash
-    npm install
-    ```
-
-2.  **Inicie o ambiente:**
-
-    ```bash
-    # Mobile (Android/iOS)
-    npx expo start
-
-    # Web (Necessário para os testes E2E)
-    npm run web
-    ```
+### 2. Inicie o App Mobile
+1. Na raiz do projeto, instale as dependências:
+   ```bash
+   npm install
+   ```
+2. (Opcional) Ajuste o IP da API em `src/services/apiConfig.ts`.
+3. Inicie o Expo:
+   ```bash
+   npx expo start
+   ```
 
 ## 🧪 Suíte de Testes
 
-O projeto adota uma pirâmide de testes para garantir a estabilidade:
+- **Unitários (Jest):** `npm test` - Focados em componentes UI e lógica de telas.
+- **E2E (Cypress):** `npm run test:e2e` - Testes de integração de fluxos críticos (Web).
 
-### 1. Testes de Unidade e Integração (Jest)
-
-Focados em componentes UI, lógica de telas e serviços de armazenamento.
-
-- **Cobertura:** 33 testes unitários distribuídos em 10 suítes.
-- **Comando:** `npm test`
-
-### 2. Testes de Ponta a Ponta (Cypress)
-
-Focados no fluxo real do usuário (Onboarding -> Login -> Dashboard -> Transações).
-
-- **Comandos:**
-  - `npm run test:e2e`: Executa o app e os testes simultaneamente.
-  - `npm run cy:open`: Abre o Cypress Dashboard.
-
-## 📂 Estrutura de Pastas
-
-- `src/components`: Componentes de UI reutilizáveis (`Button`, `Input`, `FinCard`).
-- `src/screens`: Telas principais do aplicativo.
-- `src/navigation`: Configuração de rotas (Stack e Tabs).
-- `src/services`: Camada de dados e persistência (`financeStorage.ts`).
-- `src/types`: Definições de tipos TypeScript.
-- `__tests__`: Suítes de testes unitários.
-- `cypress/e2e`: Especificações de testes E2E.
+---
+*Este projeto foi refatorado utilizando princípios de Clean Code para garantir alta manutenibilidade e escalabilidade.*
 
 ![alt text](docs/img/Gemini-CLI.jpg)
